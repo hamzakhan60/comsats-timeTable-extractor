@@ -1,26 +1,99 @@
-@import "tailwindcss";
+  /* app.css (or globals.css) */
+  @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  @theme {
+    /* Colors */
+    --color-primary: #122e56;
+    --color-secondary: #f10063;
+    --color-secondary-dark: #d00759;
+    --color-title:#18181B;
+    --color-description:#00000099;
+    --color-card: #f5f7fa;
+    --color-orange-100: #ffedd5;
+    --color-amber-700: #b45309;
+    --color-amber-900: #78350f;
+    --color-pink-200: #fbcfe8;
+    --color-pink-300: #f9a8d4;
+    --color-pink-400: #f472b6;
+    --color-blue-400: #60a5fa;
+    --color-blue-600: #2563eb;
+    --color-gray-background:#FAFAFA;
+    --color-dark-gray:#60606C;
+    --color-card-title:#303036;
+    --color-light-gray:#D9D9DD;
+    --color-feature:#2563EB;
+    --color-feature-bg:#568DDC29;
+    --color-feature2-bg:#FFE5F0;
+    --color-empty-star:#93939F;
+    --color-light-blue:#1A447F80;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+    /* Font Style*/
+    --font-size-description-size:24px;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* font weights */
+    --font-weight-title: 700;
+    --font-weight-description: 500;
+    --font-weight-faq:600;
+
+    /* Typography */
+    --font-family-sans: Inter, system-ui, sans-serif;
+    --font-family-display: "Red Hat Display", system-ui, sans-serif;
+
+    /* Spacing - Custom */
+    --spacing-navbar-x: 1.5rem; /* 24px */
+    --spacing-navbar-y: 0.5rem; /* 8px */
+
+    /* Border Radius */
+    --radius-lg: 1rem; /* 16px */
+
+    /* Animations */
+    --animate-fade-in: fade-in 0.3s ease-in-out;
   }
+
+  .bg-dots {
+  background-image: radial-gradient(circle, #e5e7eb 2px, transparent 1px);
+  background-size: 24px 24px; /* controls spacing */
+  background-color: #FBFCFD ;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @layer components {
+    /* Buttons */
+    .btn {
+      @apply px-6 py-2 rounded-xl font-medium transition-colors duration-200;
+    }
+
+    .btn-primary {
+      @apply bg-secondary text-white hover:bg-secondary-dark;
+    }
+    .btn-secondary{
+      @apply bg-white text-[#6B7280] border border-[2px] border-[#E5E7EB] hover:text-black;
+    }
+    .btn-tertiary{
+       @apply bg-primary text-white hover:bg-primary/90;
+    }
+    .btn-outline {
+      @apply border border-primary text-primary hover:bg-primary hover:text-white;
+    }
+
+    /* Icon Buttons */
+    .icon-btn {
+      @apply w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200;
+    }
+
+    .icon-btn-default {
+      @apply bg-white hover:bg-gray-100 text-primary;
+    }
+  }
+
